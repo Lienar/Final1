@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player</title>
+</head>
+<body>
+<b><h1>Зал героя {{ player_name }}</h1></b>
+<h1>////\\\\</h1>
+<h3>Здоровье героя {{ health }}</h3>
+<h1>\\\\////</h1>
+<h3>Первое умение героя: {{ player_attack1_name }} минимальная сила: {{ player_attack1_damage_min }} максимальная сила:{{ player_attack1_damage_max }} время на отдых: {{ player_attack1_cooldown }}</h3>
+<h1>////\\\\</h1>
+<h3>Второе умение героя: {{ player_attack2_name }} минимальная сила: {{ player_attack2_damage_min }} максимальная сила:{{ player_attack2_damage_max }} время на отдых: {{ player_attack2_cooldown }}</h3>
+<h1>\\\\////</h1>
+
+<h2><b><a class="page-link" href="http://127.0.0.1:8000/Enter_dungeon/?player_name={{ player_name }}">
+           Подойти ко входу в подземелье
+        </a></b></h2>
+</body>
+</html>
+

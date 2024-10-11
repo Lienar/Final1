@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Battel</title>
+</head>
+<body>
+<h5 align="center"> Здоровье: {{ player_health }}</h5>
+{% if turn == 1 %}
+<h2>{{ enemy_text }}</h2>
+<h2>{{ player_text }}</h2>
+{% endif %}
+{% if is_player_win == True %}
+<h2> {{ player_name }} атаковал на {{ player_damage }}</h2>
+<h2> и {{ enemy_text }} </h2>
+<h2>////\\\\</h2>
+<h2>\\\\////</h2>
+<h2><b><a class="page-link" href="http://127.0.0.1:8000/Move/?player_name={{ player_name }}&location_map_id={{ location_map_id }}" aria-label="Previous">
+           идти дальше
+</a></b></h2>
+<h2><b><a class="page-link" href="http://127.0.0.1:8000/Gameover/?player_name={{ player_name }}&text={{ 'Устал, пора отдохнуть' }}" aria-label="Previous">
+            Покинуть подземелье не дойдя до конца
+        </a></b></h2>
+{% else %}
+<h2> {{ player_name }} атаковал на {{ player_damage }} и</h2>
+<h2> {{ enemy_text }} </h2>
+<h2>////\\\\</h2>
+<h2>\\\\////</h2>
+<h2><b><a class="page-link" href="http://127.0.0.1:8000/Battel/?player_name={{ player_name }}&player_attack_name={{ player_attack1_name }}
+&player_health={{ player_health }}&enemy_health={{ enemy_health }}&enemy_name={{ enemy_name }}&player_damage={{ player_damage }}
+&player_attack1_cooldown={{ player_attack1_cooldown }}&player_attack2_cooldown={{ player_attack2_cooldown }}
+&enemy_attack1_cooldown={{enemy_attack1_cooldown}}&enemy_attack2_cooldown={{enemy_attack2_cooldown}}
+&turn={{ turn }}&location_map_id={{ location_map_id }} " aria-label="Previous">
+    {% if cooldawn1 > 0 %}
+    Удар {{ player_attack1_name }} пока не доступен отдых {{ cooldown1 }}
+    {% else %}
+    Ударить врага с помощью {{ player_attack1_name }}
+    {% endif %}
+</a></b></h2>
+<h2><b><a class="page-link" href="http://127.0.0.1:8000/Battel/?player_name={{ player_name }}&player_attack_name={{ player_attack2_name }}
+&player_health={{ player_health }}&enemy_health={{ enemy_health }}&enemy_name={{ enemy_name }}&player_damage={{ player_damage }}
+&player_attack1_cooldown={{ player_attack1_cooldown }}&player_attack2_cooldown={{ player_attack2_cooldown }}
+&enemy_attack1_cooldown={{enemy_attack1_cooldown}}&enemy_attack2_cooldown={{enemy_attack2_cooldown}}
+&turn={{ turn }}&location_map_id={{ location_map_id }} " aria-label="Previous">
+    {% if cooldawn2 > 0 %}
+    Удар {{ player_attack2_name }} пока не доступен отдых {{ cooldown2 }}
+    {% else %}
+    Ударить врага с помощью {{ player_attack2_name }}
+    {% endif %}
+</a></b></h2>
+<h2><b><a class="page-link" href="http://127.0.0.1:8000/Gameover/?player_name={{ player_name }}&text={{ 'Убежал сверкая пятками' }}" aria-label="Previous">
+            Убежать от врага
+        </a></b></h2>
+{% endif %}
+</body>
+</html>

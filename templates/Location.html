@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Location</title>
+</head>
+<body>
+<h5 align="center"> Здоровье: {{ player_health }}</h5>
+<h1>Вы вошли в {{ location_name }}</h1>
+<h3>{{ location_description }}</h3>
+{% if trap_exists == True and trap_found == False %}
+<h3>Кто-то забыл здесь старую ловушку как жалко, что {{ player_name}} её не заметил</h3>
+<h3>Нанесла {{ trap_damage }} урона, теперь страдать до конца приключения</h3>
+<h4>////\\\\</h4>
+<h4>\\\\////</h4>
+{% elif trap_exists == True and trap_found == True %}
+<h3>Кто-то забыл здесь старую ловушку, но {{ player_name}} ловок</h3>
+<h3>И смертоносный механизм остался позади</h3>
+<h4>////\\\\</h4>
+<h4>\\\\////</h4>
+{% endif %}
+<h2> Теперь есть время подумать, и решить что делать </h2>
+
+<h2><b><a class="page-link" href="http://127.0.0.1:8000/Move/?player_name={{ player_name }}&location_map_id={{ location_map_id }}" aria-label="Previous">
+           идти дальше
+</a></b></h2>
+<h2><b><a class="page-link" href="http://127.0.0.1:8000/Gameover/?player_name={{ player_name }}&text={{ 'Убежал' }}" aria-label="Previous">
+            убежать
+        </a></b></h2>
+</body>
+</html>

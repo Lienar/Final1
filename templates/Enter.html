@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter</title>
+</head>
+<body>
+<h1>Добропожаловать в это маленькое большое приключение</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for = "name">Напишите своё имя (не больше 30 символо):</label>
+        <input type = "text" id = "name" name = "name" maxlength="30" required>
+
+        <label for = "run_len">Введите длину вашего приключения (минимум 7, максимум 20):</label>
+        <input type = "text" id = "run_len" name = "run_len" maxlength="3" required>
+
+        <button type="submit"> Представиться </button>
+    </form>
+</body>
+</html>
